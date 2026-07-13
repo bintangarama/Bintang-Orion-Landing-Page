@@ -7,7 +7,7 @@ export default function Branches() {
       name: 'Bintang Orion Karawang',
       subtitle: 'Grosir Lensa Resmi Essilor, Gen-Z & Domas',
       address: 'Komplek Ruko Arcadia Jl. Galuh Mas Raya, Blok XII A No.7, Sukaharja, Telukjambe Timur, Karawang, Jawa Barat 41361',
-      hours: 'Selasa - Minggu: 11.00 - 20.00 WIB (Senin Tutup)',
+      hours: 'Senin - Sabtu: 11.00 - 20.00 WIB (Minggu Libur)',
       phone: '0811 1012 7728',
       waNumber: '6281110127728',
       mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Bintang+Orion+Karawang+Grosir+Lensa+Resmi+Essilor'
@@ -16,7 +16,7 @@ export default function Branches() {
       name: 'Bintang Orion Bekasi',
       subtitle: 'Grosir Lensa Resmi Gen-Z, Essilor & Domas',
       address: 'Jl. Mayor Oking, RT.002/RW.002, Bekasi Jaya, Kec. Bekasi Timur, Kota Bekasi, Jawa Barat 17113',
-      hours: 'Selasa - Minggu: 09.00 - 18.00 WIB (Senin Tutup)',
+      hours: 'Senin - Sabtu: 11.00 - 20.00 WIB (Minggu Libur)',
       phone: '0811 1012 7728',
       waNumber: '6281110127728',
       mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Bintang+Orion+Bekasi+Grosir+Lensa+Resmi+GEN+Z'
