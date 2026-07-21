@@ -1,18 +1,18 @@
-import React from 'react';
-import { ShieldCheck, Truck, Zap, Percent } from 'lucide-react';
+import React from "react";
+import { ShieldCheck, Truck, Zap, Percent } from "lucide-react";
 
 const stats = [
-  { value: '500+', label: 'Mitra Optik Aktif' },
-  { value: '3', label: 'Kota Layanan' },
-  { value: '10+', label: 'Tahun Pengalaman' },
-  { value: '3', label: 'Brand Lensa Resmi' },
+  { value: "200+", label: "Mitra Optik Aktif" },
+  { value: "3", label: "Kota Layanan" },
+  { value: "5+", label: "Tahun Pengalaman" },
+  { value: "3", label: "Brand Lensa Resmi" },
 ];
 
 const trustItems = [
-  { icon: <ShieldCheck size={18} />, text: '100% Lensa Original' },
-  { icon: <Zap size={18} />, text: 'Jasa Faset Presisi Cepat' },
-  { icon: <Truck size={18} />, text: 'Gratis Ongkir Area Tertentu' },
-  { icon: <Percent size={18} />, text: 'Harga Grosir Terbaik' },
+  { icon: <ShieldCheck size={18} />, text: "100% Lensa Original" },
+  { icon: <Zap size={18} />, text: "Jasa Faset Presisi Cepat" },
+  { icon: <Truck size={18} />, text: "Gratis Ongkir Area Tertentu" },
+  { icon: <Percent size={18} />, text: "Harga Grosir Terbaik" },
 ];
 
 export default function Hero() {
@@ -20,77 +20,133 @@ export default function Hero() {
     <section
       id="home"
       style={{
-        paddingTop: '110px',
-        paddingBottom: '0',
-        background: 'linear-gradient(160deg, #eef5fd 0%, #f8fbff 50%, #ffffff 100%)',
-        position: 'relative',
-        overflow: 'hidden',
+        paddingTop: "110px",
+        paddingBottom: "0",
+        background:
+          "linear-gradient(160deg, #eef5fd 0%, #f8fbff 50%, #ffffff 100%)",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
       {/* Decorative blobs */}
-      <div style={{
-        position: 'absolute', top: '-5%', right: '-8%',
-        width: '500px', height: '500px', borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(240, 90, 36, 0.06) 0%, transparent 65%)',
-        pointerEvents: 'none',
-      }} />
-      <div style={{
-        position: 'absolute', bottom: '10%', left: '-8%',
-        width: '400px', height: '400px', borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(15, 76, 129, 0.06) 0%, transparent 65%)',
-        pointerEvents: 'none',
-      }} />
+      <div
+        style={{
+          position: "absolute",
+          top: "-5%",
+          right: "-8%",
+          width: "500px",
+          height: "500px",
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, rgba(240, 90, 36, 0.06) 0%, transparent 65%)",
+          pointerEvents: "none",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          bottom: "10%",
+          left: "-8%",
+          width: "400px",
+          height: "400px",
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, rgba(15, 76, 129, 0.06) 0%, transparent 65%)",
+          pointerEvents: "none",
+        }}
+      />
 
       {/* ── Main Hero Content ── */}
       <div className="container hero-content animate-fade-in">
-
         {/* Badge */}
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: "20px",
+          }}
+        >
           <span className="badge">Partner Terpercaya Optik Indonesia</span>
         </div>
 
         {/* Headline */}
-        <h1 className="hero-title" style={{
-          fontWeight: 800,
-          color: 'var(--primary-blue)',
-          lineHeight: 1.12,
-          letterSpacing: '-0.5px',
-          textAlign: 'center',
-          marginBottom: '20px',
-        }}>
-          Distributor Grosir Lensa Resmi<br />
-          &amp; <span style={{ color: 'var(--brand-orange)' }}>Jasa Faset Presisi</span>
+        <h1
+          className="hero-title"
+          style={{
+            fontWeight: 800,
+            color: "var(--primary-blue)",
+            lineHeight: 1.12,
+            letterSpacing: "-0.5px",
+            textAlign: "center",
+            marginBottom: "20px",
+          }}
+        >
+          Distributor Grosir Lensa Resmi
+          <br />
+          &amp;{" "}
+          <span style={{ color: "var(--brand-orange)" }}>
+            Jasa Faset Presisi
+          </span>
         </h1>
 
         {/* Subtitle */}
-        <p style={{
-          fontSize: '1.1rem',
-          color: 'var(--text-muted)',
-          textAlign: 'center',
-          maxWidth: '600px',
-          margin: '0 auto 32px',
-          lineHeight: 1.7,
-        }}>
-          Bintang Orion adalah mitra grosir terpercaya untuk toko optik Anda — menyuplai lensa resmi
-          dari <strong>Essilor, Gen-Z &amp; Domas</strong> dengan layanan faset otomatis berteknologi tinggi.
+        <p
+          style={{
+            fontSize: "1.1rem",
+            color: "var(--text-muted)",
+            textAlign: "center",
+            maxWidth: "600px",
+            margin: "0 auto 32px",
+            lineHeight: 1.7,
+          }}
+        >
+          Bintang Orion adalah mitra grosir terpercaya untuk toko optik Anda —
+          menyuplai lensa resmi dari <strong>Essilor, Gen-Z &amp; Domas</strong>{" "}
+          dengan layanan faset otomatis berteknologi tinggi.
         </p>
 
         {/* Trust Indicators — horizontal row */}
         <div className="hero-trust-row">
           {trustItems.map((item, i) => (
             <div key={i} className="hero-trust-item">
-              <span style={{ color: 'var(--brand-orange)', flexShrink: 0 }}>{item.icon}</span>
-              <span style={{ fontWeight: 600, fontSize: '0.9rem', whiteSpace: 'nowrap' }}>{item.text}</span>
+              <span style={{ color: "var(--brand-orange)", flexShrink: 0 }}>
+                {item.icon}
+              </span>
+              <span
+                style={{
+                  fontWeight: 600,
+                  fontSize: "0.9rem",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {item.text}
+              </span>
             </div>
           ))}
         </div>
 
         {/* CTA Buttons */}
-        <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '64px' }}>
-          <a href="#estimator" className="btn btn-primary" style={{ padding: '14px 36px', fontSize: '1rem' }}>
+        <div
+          style={{
+            display: "flex",
+            gap: "16px",
+            justifyContent: "center",
+            flexWrap: "wrap",
+            marginBottom: "64px",
+          }}
+        >
+          <a
+            href="#estimator"
+            className="btn btn-primary"
+            style={{ padding: "14px 36px", fontSize: "1rem" }}
+          >
             Kalkulator Order Cepat
           </a>
-          <a href="#cabang" className="btn btn-secondary" style={{ padding: '14px 36px', fontSize: '1rem' }}>
+          <a
+            href="#cabang"
+            className="btn btn-secondary"
+            style={{ padding: "14px 36px", fontSize: "1rem" }}
+          >
             Hubungi Cabang Kami
           </a>
         </div>
