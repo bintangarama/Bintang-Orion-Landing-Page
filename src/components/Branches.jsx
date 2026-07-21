@@ -19,7 +19,7 @@ export default function Branches() {
       subtitle: "Grosir Lensa Resmi Gen-Z, Essilor & Domas",
       address:
         "Jl. Mayor Oking, RT.002/RW.002, Bekasi Jaya, Kec. Bekasi Timur, Kota Bekasi, Jawa Barat 17113",
-      hours: "Senin - Sabtu: 11.00 - 20.00 WIB (Minggu Libur)",
+      hours: "Senin - Sabtu: 09.00 - 18.00 WIB (Minggu Libur)",
       phone: "0811 8105 679",
       waNumber: "628118105679",
       mapsUrl:
