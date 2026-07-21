@@ -35,24 +35,11 @@ export default function Navbar() {
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         {/* Brand Logo */}
         <a href="#home" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <div style={{
-            width: '40px',
-            height: '40px',
-            borderRadius: '50%',
-            backgroundColor: 'var(--brand-orange)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: 'white',
-            fontWeight: 'bold',
-            boxShadow: '0 4px 10px rgba(240, 90, 36, 0.2)'
-          }}>
-            {/* Eye Icon SVG inside Circle */}
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0z" />
-              <circle cx="12" cy="12" r="3" />
-            </svg>
-          </div>
+          <img
+            src="/bintang-orion-icon-crop.png"
+            alt="Bintang Orion Logo"
+            style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover', boxShadow: '0 4px 10px rgba(240, 90, 36, 0.25)' }}
+          />
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span style={{ 
               fontWeight: 800, 

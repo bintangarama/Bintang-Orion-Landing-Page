@@ -20,7 +20,7 @@ export default function OrderEstimator() {
 
   const branches = [
     { name: 'Karawang', phone: '6281110127728', address: 'Galuh Mas' },
-    { name: 'Bekasi', phone: '6281110127728', address: 'Mayor Oking' } // using the official number for both, or can configure separately
+    { name: 'Bekasi', phone: '628118105679', address: 'Mayor Oking' }
   ];
 
   // Generate WhatsApp text message draft
@@ -287,67 +287,71 @@ Mohon info harga grosir spesial kemitraan. Terima kasih!`;
 
           </div>
 
-          {/* Right Side: Message Preview & Action */}
+          {/* Right Side: Summary Card + CTA */}
           <div style={{
             backgroundColor: 'var(--primary-blue)',
             color: 'white',
-            padding: '40px 30px',
+            padding: '36px 30px',
             borderRadius: 'var(--border-radius-lg)',
             boxShadow: 'var(--shadow-xl)',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
-            gap: '24px',
+            gap: '28px',
             position: 'relative',
             overflow: 'hidden'
           }}>
-            {/* Decorative white glow */}
+            {/* Decorative glow */}
             <div style={{
-              position: 'absolute',
-              bottom: '-10%',
-              right: '-10%',
-              width: '250px',
-              height: '250px',
-              borderRadius: '50%',
+              position: 'absolute', bottom: '-10%', right: '-10%',
+              width: '250px', height: '250px', borderRadius: '50%',
               background: 'radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 70%)',
               pointerEvents: 'none'
             }} />
 
+            {/* Header */}
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
-                <FileText size={20} style={{ color: 'var(--brand-orange)' }} />
-                <span style={{ fontSize: '0.85rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: 'var(--brand-orange)' }}>
-                  Draf Pesanan WhatsApp
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                <FileText size={18} style={{ color: 'var(--brand-orange)' }} />
+                <span style={{ fontSize: '0.8rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: 'var(--brand-orange)' }}>
+                  Pesanan Anda
                 </span>
               </div>
-              <h3 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: '8px' }}>Ringkasan Order Anda</h3>
-              <p style={{ fontSize: '0.9rem', color: '#93c5fd', marginBottom: '24px' }}>
-                Berikut adalah draf pesan yang akan dikirim secara otomatis ke nomor sales WhatsApp Bintang Orion cabang **{branch}**.
+              <h3 style={{ fontSize: '1.5rem', fontWeight: 800, lineHeight: 1.2, marginBottom: '6px' }}>
+                Siap Dikirim ke WhatsApp
+              </h3>
+              <p style={{ fontSize: '0.85rem', color: '#93c5fd' }}>
+                Klik tombol di bawah — pesan sudah otomatis terisi ke chat sales cabang <strong style={{ color: 'white' }}>{branch}</strong>.
               </p>
-
-              {/* Message Code Block Mockup */}
-              <div style={{
-                backgroundColor: 'rgba(0, 0, 0, 0.2)',
-                borderRadius: 'var(--border-radius-sm)',
-                padding: '20px',
-                fontFamily: 'monospace',
-                fontSize: '0.85rem',
-                lineHeight: '1.5',
-                whiteSpace: 'pre-wrap',
-                color: '#e0f2fe',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                maxHeight: '260px',
-                overflowY: 'auto'
-              }}>
-                {generateMessage()}
-              </div>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.8rem', color: '#93c5fd' }}>
-                <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'var(--brand-orange)' }}></span>
-                <span>Harga grosir dihitung berdasarkan jumlah kuantitas bulanan mitra optik.</span>
-              </div>
+            {/* Summary Chips */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              {[
+                { label: 'Merek', value: brand },
+                { label: 'Jenis Lensa', value: lensType },
+                { label: 'Jasa Faset', value: needFaset ? 'Ya — Potong Presisi' : 'Tidak' },
+                { label: 'Jumlah', value: `${quantity} Pasang${cleanerQty > 0 ? ` + ${cleanerQty} NexQ Cleaner` : ''}` },
+                { label: 'Cabang Tujuan', value: `Bintang Orion ${branch}` },
+              ].map((item) => (
+                <div key={item.label} style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'flex-start',
+                  gap: '12px',
+                  padding: '10px 14px',
+                  backgroundColor: 'rgba(255,255,255,0.07)',
+                  borderRadius: 'var(--border-radius-sm)',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                }}>
+                  <span style={{ fontSize: '0.78rem', color: '#93c5fd', fontWeight: 600, flexShrink: 0 }}>{item.label}</span>
+                  <span style={{ fontSize: '0.85rem', fontWeight: 700, textAlign: 'right' }}>{item.value}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <button
                 onClick={handleSendWhatsApp}
                 className="btn btn-primary"
@@ -355,15 +359,20 @@ Mohon info harga grosir spesial kemitraan. Terima kasih!`;
                   width: '100%',
                   padding: '16px',
                   fontSize: '1.05rem',
+                  fontWeight: 700,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: '10px',
-                  boxShadow: '0 10px 15px -3px rgba(240, 90, 36, 0.4)'
+                  boxShadow: '0 10px 20px -4px rgba(240, 90, 36, 0.5)',
+                  borderRadius: 'var(--border-radius-md)',
                 }}
               >
-                <Send size={18} /> Kirim Penawaran via WhatsApp
+                <Send size={18} /> Kirim Pesanan via WhatsApp
               </button>
+              <p style={{ fontSize: '0.75rem', color: '#64748b', textAlign: 'center', margin: 0 }}>
+                🔒 Pesan terkirim langsung ke sales — tidak ada data yang disimpan
+              </p>
             </div>
 
           </div>

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Eye, Shield, Award, Sparkles, Box, Hammer } from 'lucide-react';
+import LensaGallery from './LensaGallery';
+import FrameGallery from './FrameGallery';
 
 export default function Brands() {
   const brands = [
@@ -31,10 +33,16 @@ export default function Brands() {
 
   const products = [
     {
-      name: 'NexQ Cleaner 30ml',
+      name: 'NexQ Cleaner — Pembersih Lensa',
       icon: <Eye size={24} style={{ color: 'var(--primary-blue)' }} />,
-      image: '/images/nexq-cleaner.jpg',
-      desc: 'Cairan pembersih khusus lensa kacamata dengan formula ANTIFOG (anti-embun) & Anti-Bakteri. Produk wajib untuk upselling di meja kasir optik Anda.'
+      image: '/images/nexq-pembersih-lensa.jpg',
+      desc: 'Cairan pembersih lensa kacamata 30ml — efektif mengangkat debu, kotoran, dan minyak pada frame & lensa. Formula aman, terdaftar Kemenkes RI.'
+    },
+    {
+      name: 'NexQ Anti Fog Agent',
+      icon: <Eye size={24} style={{ color: 'var(--primary-blue)' }} />,
+      image: '/images/nexq-anti-fog-agent.jpg',
+      desc: 'Formula anti-kabut premium untuk kaca, cermin, dan akrilik. Coating permukaan anti-embun berbasis US Formula, cocok untuk kacamata & pelindung wajah.'
     },
     {
       name: 'Frames & Aksesoris',
@@ -170,6 +178,12 @@ export default function Brands() {
             ))}
           </div>
         </div>
+
+        {/* === Galeri Lensa Domas === */}
+        <LensaGallery />
+
+        {/* === Galeri Frame Kacamata === */}
+        <FrameGallery />
 
       </div>
 

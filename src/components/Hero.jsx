@@ -1,206 +1,186 @@
 import React from 'react';
 import { ShieldCheck, Truck, Zap, Percent } from 'lucide-react';
 
+const stats = [
+  { value: '500+', label: 'Mitra Optik Aktif' },
+  { value: '3', label: 'Kota Layanan' },
+  { value: '10+', label: 'Tahun Pengalaman' },
+  { value: '3', label: 'Brand Lensa Resmi' },
+];
+
+const trustItems = [
+  { icon: <ShieldCheck size={18} />, text: '100% Lensa Original' },
+  { icon: <Zap size={18} />, text: 'Jasa Faset Presisi Cepat' },
+  { icon: <Truck size={18} />, text: 'Gratis Ongkir Area Tertentu' },
+  { icon: <Percent size={18} />, text: 'Harga Grosir Terbaik' },
+];
+
 export default function Hero() {
   return (
-    <section 
-      id="home" 
+    <section
+      id="home"
       style={{
-        paddingTop: '140px',
-        paddingBottom: '80px',
-        background: 'linear-gradient(135deg, #f0f6fc 0%, #ffffff 100%)',
+        paddingTop: '110px',
+        paddingBottom: '0',
+        background: 'linear-gradient(160deg, #eef5fd 0%, #f8fbff 50%, #ffffff 100%)',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
       }}
     >
-      {/* Decorative Light Circles */}
+      {/* Decorative blobs */}
       <div style={{
-        position: 'absolute',
-        top: '-10%',
-        right: '-10%',
-        width: '400px',
-        height: '400px',
-        borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(240, 90, 36, 0.05) 0%, rgba(255,255,255,0) 70%)',
-        pointerEvents: 'none'
+        position: 'absolute', top: '-5%', right: '-8%',
+        width: '500px', height: '500px', borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(240, 90, 36, 0.06) 0%, transparent 65%)',
+        pointerEvents: 'none',
       }} />
       <div style={{
-        position: 'absolute',
-        bottom: '-5%',
-        left: '-5%',
-        width: '350px',
-        height: '350px',
-        borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(15, 76, 129, 0.05) 0%, rgba(255,255,255,0) 70%)',
-        pointerEvents: 'none'
+        position: 'absolute', bottom: '10%', left: '-8%',
+        width: '400px', height: '400px', borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(15, 76, 129, 0.06) 0%, transparent 65%)',
+        pointerEvents: 'none',
       }} />
 
-      <div className="container hero-grid" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '40px', alignItems: 'center' }}>
-        {/* Left Content */}
-        <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <div className="badge">
-            Partner Terpercaya Optik Indonesia
-          </div>
-          <h1 style={{ 
-            fontSize: '3rem', 
-            fontWeight: 800, 
-            color: 'var(--primary-blue)', 
-            lineHeight: 1.15,
-            letterSpacing: '-0.5px'
-          }} className="hero-title">
-            Distributor Grosir Lensa Resmi & <span style={{ color: 'var(--brand-orange)' }}>Jasa Faset Presisi</span>
-          </h1>
-          <p style={{ fontSize: '1.15rem', color: 'var(--text-muted)', maxWidth: '540px' }}>
-            Bintang Orion adalah mitra terpercaya untuk toko optik Anda. Kami menyuplai lensa resmi berkualitas tinggi dari <strong>Essilor, Gen-Z, & Domas</strong> dengan layanan faset cepat menggunakan mesin otomatis berteknologi tinggi.
-          </p>
+      {/* ── Main Hero Content ── */}
+      <div className="container hero-content animate-fade-in">
 
-          {/* Core Trust Indicators Grid */}
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: '1fr 1fr', 
-            gap: '16px', 
-            marginTop: '10px', 
-            marginBottom: '15px' 
-          }} className="trust-grid">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <div style={{ color: 'var(--brand-orange)' }}><ShieldCheck size={20} /></div>
-              <span style={{ fontWeight: 600, fontSize: '0.95rem' }}>100% Lensa Original</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <div style={{ color: 'var(--brand-orange)' }}><Zap size={20} /></div>
-              <span style={{ fontWeight: 600, fontSize: '0.95rem' }}>Terima Jasa Faset Cepat</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <div style={{ color: 'var(--brand-orange)' }}><Truck size={20} /></div>
-              <span style={{ fontWeight: 600, fontSize: '0.95rem' }}>Gratis Ongkir Area Tertentu</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <div style={{ color: 'var(--brand-orange)' }}><Percent size={20} /></div>
-              <span style={{ fontWeight: 600, fontSize: '0.95rem' }}>Harga Grosir Terbaik</span>
-            </div>
-          </div>
-
-          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-            <a href="#estimator" className="btn btn-primary" style={{ padding: '14px 32px' }}>
-              Kalkulator Order Cepat
-            </a>
-            <a href="#cabang" className="btn btn-secondary" style={{ padding: '14px 32px' }}>
-              Hubungi Cabang Kami
-            </a>
-          </div>
+        {/* Badge */}
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+          <span className="badge">Partner Terpercaya Optik Indonesia</span>
         </div>
 
-        {/* Right Graphic/Mockup */}
-        <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }} className="hero-graphic">
-          <div style={{
-            background: 'white',
-            borderRadius: 'var(--border-radius-lg)',
-            boxShadow: 'var(--shadow-xl)',
-            padding: '30px',
-            border: '1px solid var(--border-color)',
-            width: '100%',
-            maxWidth: '460px',
-            position: 'relative',
-            zIndex: 2,
-          }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#ef4444' }}></span>
-                <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#fbbf24' }}></span>
-                <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#22c55e' }}></span>
-              </div>
-              <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-light)', letterSpacing: '0.5px' }}>BINTANG ORION OPTICAL LAB</span>
+        {/* Headline */}
+        <h1 className="hero-title" style={{
+          fontWeight: 800,
+          color: 'var(--primary-blue)',
+          lineHeight: 1.12,
+          letterSpacing: '-0.5px',
+          textAlign: 'center',
+          marginBottom: '20px',
+        }}>
+          Distributor Grosir Lensa Resmi<br />
+          &amp; <span style={{ color: 'var(--brand-orange)' }}>Jasa Faset Presisi</span>
+        </h1>
+
+        {/* Subtitle */}
+        <p style={{
+          fontSize: '1.1rem',
+          color: 'var(--text-muted)',
+          textAlign: 'center',
+          maxWidth: '600px',
+          margin: '0 auto 32px',
+          lineHeight: 1.7,
+        }}>
+          Bintang Orion adalah mitra grosir terpercaya untuk toko optik Anda — menyuplai lensa resmi
+          dari <strong>Essilor, Gen-Z &amp; Domas</strong> dengan layanan faset otomatis berteknologi tinggi.
+        </p>
+
+        {/* Trust Indicators — horizontal row */}
+        <div className="hero-trust-row">
+          {trustItems.map((item, i) => (
+            <div key={i} className="hero-trust-item">
+              <span style={{ color: 'var(--brand-orange)', flexShrink: 0 }}>{item.icon}</span>
+              <span style={{ fontWeight: 600, fontSize: '0.9rem', whiteSpace: 'nowrap' }}>{item.text}</span>
             </div>
+          ))}
+        </div>
 
-            {/* Simulated Live Order Dashboard */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <div style={{ padding: '12px 16px', backgroundColor: 'var(--bg-light)', borderRadius: 'var(--border-radius-sm)', borderLeft: '4px solid var(--brand-orange)' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)' }}>
-                  <span>STATUS: PROSES FASET</span>
-                  <span style={{ color: 'var(--brand-orange)' }}>SELESAI HARI INI</span>
-                </div>
-                <p style={{ fontWeight: 700, fontSize: '0.95rem', margin: '4px 0', color: 'var(--primary-blue)' }}>Lensa Essilor Crizal Sapphire + Faset</p>
-                <p style={{ fontSize: '0.8rem', color: 'var(--text-light)' }}>Order dari: Mitra Optik Cikarang</p>
-              </div>
+        {/* CTA Buttons */}
+        <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '64px' }}>
+          <a href="#estimator" className="btn btn-primary" style={{ padding: '14px 36px', fontSize: '1rem' }}>
+            Kalkulator Order Cepat
+          </a>
+          <a href="#cabang" className="btn btn-secondary" style={{ padding: '14px 36px', fontSize: '1rem' }}>
+            Hubungi Cabang Kami
+          </a>
+        </div>
+      </div>
 
-              <div style={{ padding: '12px 16px', backgroundColor: 'var(--bg-light)', borderRadius: 'var(--border-radius-sm)', borderLeft: '4px solid var(--primary-blue)' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)' }}>
-                  <span>STATUS: PENGIRIMAN</span>
-                  <span style={{ color: 'var(--success)' }}>GRATIS ONGKIR</span>
-                </div>
-                <p style={{ fontWeight: 700, fontSize: '0.95rem', margin: '4px 0', color: 'var(--primary-blue)' }}>Lensa Gen-Z Blue-Cut 1.56 (5 Pasang)</p>
-                <p style={{ fontSize: '0.8rem', color: 'var(--text-light)' }}>Tujuan: Ruko Arcadia Galuh Mas, Karawang</p>
+      {/* ── Stats Bar ── */}
+      <div className="hero-stats-bar">
+        <div className="container">
+          <div className="hero-stats-grid">
+            {stats.map((s, i) => (
+              <div key={i} className="hero-stat-item">
+                <span className="hero-stat-value">{s.value}</span>
+                <span className="hero-stat-label">{s.label}</span>
               </div>
-
-              {/* Machine Badge */}
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '12px',
-                padding: '12px 16px',
-                border: '1px dashed var(--border-color)',
-                borderRadius: 'var(--border-radius-sm)',
-                marginTop: '5px'
-              }}>
-                <div style={{
-                  width: '32px',
-                  height: '32px',
-                  borderRadius: '6px',
-                  backgroundColor: 'var(--primary-blue-light)',
-                  color: 'var(--primary-blue)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontWeight: 700,
-                  fontSize: '0.75rem'
-                }}>EDG</div>
-                <div>
-                  <p style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-dark)' }}>Essilor Delta 2 Edger</p>
-                  <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Pemotongan lensa presisi & rapi otomatis</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
-          
-          {/* Back shadow element */}
-          <div style={{
-            position: 'absolute',
-            top: '20px',
-            left: '20px',
-            width: '100%',
-            maxWidth: '460px',
-            height: '100%',
-            backgroundColor: 'var(--primary-blue-light)',
-            borderRadius: 'var(--border-radius-lg)',
-            zIndex: 1,
-            pointerEvents: 'none',
-            border: '1px solid rgba(15, 76, 129, 0.05)'
-          }} />
         </div>
       </div>
 
       <style>{`
-        .hero-grid {
+        .hero-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        /* Headline size */
+        .hero-title { font-size: 2.6rem; }
+        @media (min-width: 640px)  { .hero-title { font-size: 3.2rem; } }
+        @media (min-width: 992px)  { .hero-title { font-size: 3.8rem; } }
+        @media (max-width: 480px)  { .hero-title { font-size: 2.1rem; } }
+
+        /* Trust row */
+        .hero-trust-row {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 12px 28px;
+          margin-bottom: 32px;
+        }
+        .hero-trust-item {
+          display: flex;
+          align-items: center;
+          gap: 7px;
+          color: var(--text-dark);
+        }
+
+        /* Stats bar */
+        .hero-stats-bar {
+          background: var(--primary-blue);
+          padding: 28px 0;
+          margin-top: 0;
+        }
+        .hero-stats-grid {
           display: grid;
-          grid-template-columns: 1fr;
-          gap: 40px;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 24px 0;
         }
-        @media (min-width: 992px) {
-          .hero-grid {
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 60px;
-          }
-          .hero-title {
-            font-size: 3.5rem !important;
+        @media (min-width: 640px) {
+          .hero-stats-grid {
+            grid-template-columns: repeat(4, 1fr);
           }
         }
-        @media (max-width: 480px) {
-          .trust-grid {
-            grid-template-columns: 1fr !important;
-          }
-          .hero-title {
-            font-size: 2.25rem !important;
-          }
+        .hero-stat-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 4px;
+          padding: 0 20px;
+          border-right: 1px solid rgba(255,255,255,0.12);
+        }
+        .hero-stat-item:last-child { border-right: none; }
+        @media (max-width: 639px) {
+          .hero-stat-item:nth-child(2) { border-right: none; }
+          .hero-stat-item:nth-child(3) { border-top: 1px solid rgba(255,255,255,0.12); }
+          .hero-stat-item:nth-child(4) { border-top: 1px solid rgba(255,255,255,0.12); }
+        }
+        .hero-stat-value {
+          font-size: 2rem;
+          font-weight: 800;
+          color: white;
+          line-height: 1;
+          font-family: var(--font-serif);
+        }
+        .hero-stat-label {
+          font-size: 0.78rem;
+          color: rgba(255,255,255,0.65);
+          font-weight: 600;
+          letter-spacing: 0.3px;
+          text-align: center;
         }
       `}</style>
     </section>

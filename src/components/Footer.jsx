@@ -35,21 +35,11 @@ export default function Footer() {
         {/* About column */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div style={{
-              width: '36px',
-              height: '36px',
-              borderRadius: '50%',
-              backgroundColor: 'var(--brand-orange)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: 'white'
-            }}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0z" />
-                <circle cx="12" cy="12" r="3" />
-              </svg>
-            </div>
+            <img
+              src="/bintang-orion-icon-crop.png"
+              alt="Bintang Orion Logo"
+              style={{ width: '36px', height: '36px', borderRadius: '50%', objectFit: 'cover' }}
+            />
             <span style={{ fontWeight: 800, fontSize: '1.2rem', letterSpacing: '0.5px' }}>BINTANG ORION</span>
           </div>
           <p style={{ fontSize: '0.875rem', color: '#94a3b8', lineHeight: '1.6' }}>
