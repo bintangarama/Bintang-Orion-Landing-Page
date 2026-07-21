@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Lightbox from './Lightbox';
 
 const lensaProducts = [
   // Single Vision
@@ -97,11 +98,28 @@ const tabs = [
 export default function LensaGallery() {
   const [activeTab, setActiveTab] = useState('all');
   const [hoveredId, setHoveredId] = useState(null);
+  const [lightboxIndex, setLightboxIndex] = useState(null);
   const scrollRef = useRef(null);
 
   const filtered = activeTab === 'all'
     ? lensaProducts
     : lensaProducts.filter(p => p.category === activeTab);
+
+  // Map to Lightbox image format
+  const lightboxImages = filtered.map(lens => ({
+    src: lens.image,
+    alt: `${lens.brand} ${lens.name}`,
+    name: lens.name,
+    brand: lens.brand,
+    tag: lens.tag,
+    tagColor: lens.tagColor,
+    desc: lens.desc,
+  }));
+
+  const openLightbox = (lens) => {
+    const idx = filtered.findIndex(l => l.id === lens.id);
+    setLightboxIndex(idx);
+  };
 
   const scroll = (dir) => {
     if (!scrollRef.current) return;
@@ -152,6 +170,8 @@ export default function LensaGallery() {
               className="lensa-card"
               onMouseEnter={() => setHoveredId(lens.id)}
               onMouseLeave={() => setHoveredId(null)}
+              onClick={() => openLightbox(lens)}
+              style={{ cursor: 'pointer' }}
             >
               {/* Image */}
               <div className="lensa-card-img-wrap">
@@ -161,9 +181,9 @@ export default function LensaGallery() {
                   className="lensa-card-img"
                   loading="lazy"
                 />
-                {/* Overlay on hover */}
+              {/* Overlay on hover */}
                 <div className={`lensa-card-overlay ${hoveredId === lens.id ? 'visible' : ''}`}>
-                  <p className="lensa-overlay-desc">{lens.desc}</p>
+                  <p className="lensa-overlay-desc">🔍 Klik untuk melihat detail</p>
                 </div>
               </div>
 
@@ -187,6 +207,15 @@ export default function LensaGallery() {
           <ChevronRight size={20} />
         </button>
       </div>
+
+      {/* Lightbox */}
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={lightboxImages}
+          initialIndex={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+        />
+      )}
 
       <style>{`
         .lensa-gallery-wrapper {

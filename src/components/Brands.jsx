@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Eye, Shield, Award, Sparkles, Box, Hammer } from 'lucide-react';
 import LensaGallery from './LensaGallery';
 import FrameGallery from './FrameGallery';
+import Lightbox from './Lightbox';
 
 export default function Brands() {
   const brands = [
@@ -58,6 +59,39 @@ export default function Brands() {
     }
   ];
 
+  // Lightbox state — brand cards
+  const [brandLbIndex, setBrandLbIndex] = useState(null);
+  const brandLbImages = brands.map(b => ({
+    src: b.image,
+    alt: b.name,
+    name: b.name,
+    brand: b.tagline,
+    tag: 'Lensa Resmi',
+    tagColor: '#f05a24',
+    desc: b.desc,
+  }));
+
+  // Lightbox state — product + flyer cards
+  const flyerImage = {
+    src: '/images/hardcase-lipat-banner.jpg',
+    alt: 'Koleksi Hardcase Lipat Bintang Orion',
+    name: 'Hardcase Lipat — New Arrival',
+    brand: 'Bintang Orion',
+    tag: 'New Arrival',
+    tagColor: '#16a34a',
+    desc: 'Hardcase lipat custom sablon terbaru dari Bintang Orion. Ringan, kokoh, dan bisa dipesan dengan logo toko optik Anda.'
+  };
+  const [productLbIndex, setProductLbIndex] = useState(null);
+  const productLbImages = [flyerImage, ...products.map(p => ({
+    src: p.image,
+    alt: p.name,
+    name: p.name,
+    brand: 'Bintang Orion',
+    tag: 'Produk Pendukung',
+    tagColor: '#0f4c81',
+    desc: p.desc,
+  }))];
+
   return (
     <section id="produk" className="section section-bg">
       <div className="container">
@@ -90,7 +124,12 @@ export default function Brands() {
               }}
             >
               {/* Brand Card Image Header */}
-              <div className="brand-image-container">
+              <div
+                className="brand-image-container"
+                onClick={() => setBrandLbIndex(idx)}
+                style={{ cursor: 'zoom-in' }}
+                title="Klik untuk perbesar"
+              >
                 <img src={brand.image} alt={brand.name} className="brand-card-image" />
               </div>
 
@@ -148,7 +187,12 @@ export default function Brands() {
         {/* Layout Grid with Flyer Banner and Product Cards */}
         <div className="secondary-products-layout">
           {/* Left: Flyer Promo Card */}
-          <div className="flyer-card">
+          <div
+            className="flyer-card"
+            onClick={() => setProductLbIndex(0)}
+            style={{ cursor: 'zoom-in' }}
+            title="Klik untuk perbesar"
+          >
             <div className="flyer-badge">New Arrival</div>
             <img 
               src="/images/hardcase-lipat-banner.jpg" 
@@ -164,7 +208,12 @@ export default function Brands() {
                 key={idx}
                 className="product-card"
               >
-                <div className="product-image-container">
+                <div
+                  className="product-image-container"
+                  onClick={() => setProductLbIndex(idx + 1)}
+                  style={{ cursor: 'zoom-in' }}
+                  title="Klik untuk perbesar"
+                >
                   <img src={prod.image} alt={prod.name} className="product-card-image" />
                 </div>
                 <div className="product-info">
@@ -186,6 +235,24 @@ export default function Brands() {
         <FrameGallery />
 
       </div>
+
+      {/* Brand Lightbox */}
+      {brandLbIndex !== null && (
+        <Lightbox
+          images={brandLbImages}
+          initialIndex={brandLbIndex}
+          onClose={() => setBrandLbIndex(null)}
+        />
+      )}
+
+      {/* Product Lightbox */}
+      {productLbIndex !== null && (
+        <Lightbox
+          images={productLbImages}
+          initialIndex={productLbIndex}
+          onClose={() => setProductLbIndex(null)}
+        />
+      )}
 
       <style>{`
         /* Brand Cards Styling */

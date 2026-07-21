@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Lightbox from './Lightbox';
 
 const frames = [
   {
@@ -84,10 +85,28 @@ const filters = [
 export default function FrameGallery() {
   const [activeFilter, setActiveFilter] = useState('all');
   const [hoveredId, setHoveredId] = useState(null);
+  const [lightboxIndex, setLightboxIndex] = useState(null);
 
   const filtered = activeFilter === 'all'
     ? frames
     : frames.filter(f => f.brand === activeFilter);
+
+  // Map to Lightbox image format
+  const lightboxImages = filtered.map(frame => ({
+    src: frame.image,
+    alt: `${frame.brandLabel} ${frame.name}`,
+    name: frame.name,
+    brand: frame.brandLabel,
+    series: frame.series,
+    tag: frame.style,
+    tagColor: frame.brand === 'gen-z' ? '#0f4c81' : '#f05a24',
+    desc: frame.desc,
+  }));
+
+  const openLightbox = (frame) => {
+    const idx = filtered.findIndex(f => f.id === frame.id);
+    setLightboxIndex(idx);
+  };
 
   return (
     <div className="frame-gallery-wrapper">
@@ -125,6 +144,8 @@ export default function FrameGallery() {
             className="frame-card"
             onMouseEnter={() => setHoveredId(frame.id)}
             onMouseLeave={() => setHoveredId(null)}
+            onClick={() => openLightbox(frame)}
+            style={{ cursor: 'pointer' }}
           >
             {/* Image + Overlay */}
             <div className="frame-img-wrap">
@@ -144,7 +165,7 @@ export default function FrameGallery() {
               <div className={`frame-overlay ${hoveredId === frame.id ? 'visible' : ''}`}>
                 <div className="frame-overlay-content">
                   <p className="frame-overlay-name">{frame.name}</p>
-                  <p className="frame-overlay-desc">{frame.desc}</p>
+                  <p className="frame-overlay-desc">🔍 Klik untuk melihat detail</p>
                   <div className="frame-overlay-specs">
                     <span>🏷 {frame.material}</span>
                     <span>🔲 {frame.style}</span>
@@ -166,6 +187,15 @@ export default function FrameGallery() {
           </div>
         ))}
       </div>
+
+      {/* Lightbox */}
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={lightboxImages}
+          initialIndex={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+        />
+      )}
 
       <style>{`
         .frame-gallery-wrapper {
