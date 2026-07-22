@@ -21,8 +21,8 @@ export default function OrderEstimator() {
   ];
 
   const branches = [
-    { name: "Karawang", phone: "6281110127728", address: "Galuh Mas" },
-    { name: "Bekasi", phone: "628118105679", address: "Mayor Oking" },
+    { name: "Karawang", phone: "6281110127728xxx", address: "Galuh Mas" },
+    { name: "Bekasi", phone: "628118105679xxx", address: "Mayor Oking" },
   ];
 
   // Generate WhatsApp text message draft
